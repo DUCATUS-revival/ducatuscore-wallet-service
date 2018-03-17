@@ -21,7 +21,7 @@ var config = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://mongodb:27017/bws',
+      uri: 'mongodb://localhost:27017/bws',
     },
   },
   lockOpts: {
@@ -38,16 +38,31 @@ var config = {
     },
   },
   blockchainExplorerOpts: {
-    livenet: {
-      provider: 'insight',
-      url: 'http://insight.ducatus.io:3001',
+    btc: {
+      livenet: {
+        provider: 'insight',
+        url: 'http://insight.ducatus.io:3001',
+      },
+      testnet: {
+        provider: 'insight',
+        url: 'https://test-insight.bitpay.com:443',
+        // Multiple servers (in priority order)
+        // url: ['http://a.b.c', 'https://test-insight.bitpay.com:443'],
+      },
     },
-    testnet: {
-      provider: 'insight',
-      url: 'https://test-insight.bitpay.com:443',
-      // url: 'http://localhost:3001',
-      // Multiple servers (in priority order)
-      // url: ['http://a.b.c', 'https://test-insight.bitpay.com:443'],
+    bch: {
+      livenet: {
+        provider: 'insight',
+        //url: 'https://cashexplorer.bitcoin.com',
+        url: 'https://bch-insight.bitpay.com:443',
+        addressFormat: 'cashaddr',  // copay, cashaddr, or legacy
+      },
+      testnet: {
+        provider: 'insight',
+        url: 'https://test-bch-insight.bitpay.com:443',
+        addressFormat: 'cashaddr',  // copay, cashaddr, or legacy
+      },
+ 
     },
   },
   pushNotificationsOpts: {
