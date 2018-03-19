@@ -2,6 +2,8 @@
 logs
 *.log
 *.sw*
+logs.txt
+logs.tx
 
 # Runtime data
 pids

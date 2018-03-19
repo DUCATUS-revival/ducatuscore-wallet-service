@@ -1,6 +1,7 @@
-FROM ubuntu:16.04
+#FROM ubuntu:16.04
+FROM node
 
-RUN apt-get update -y && apt-get install -y git npm nodejs-legacy
+RUN apt-get update -y && apt-get install -y git npm nodejs-legacy build-essential libssl-dev
 
 RUN mkdir -p /root/.ssh
 
