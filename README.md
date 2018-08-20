@@ -1,3 +1,11 @@
+# Environment Variables Needed
+
+```bash
+MONGO_DB_URI=mongodb://mongodb:27017/bws 
+LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
+MESSAGE_BROKER_URL=http://message-broker:3380
+BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
+```
 
 # bitcore-wallet-service
 

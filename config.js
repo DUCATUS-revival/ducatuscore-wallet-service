@@ -21,26 +21,26 @@ var config = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://mongodb:27017/bws',
+      uri: process.env.MONGO_DB_URI,
     },
   },
   lockOpts: {
     //  To use locker-server, uncomment this:
     lockerServer: {
-      host: 'localhost',
+      host: process.env.LOCKER_HOST,
       port: 3231,
     },
   },
   messageBrokerOpts: {
     //  To use message broker server, uncomment this:
     messageBrokerServer: {
-      url: 'http://localhost:3380',
+      url: process.env.MESSAGE_BROKER_URL,
     },
   },
   blockchainExplorerOpts: {
     livenet: {
       provider: 'insight',
-      url: 'http://insight.ducatus.io:3001',
+      url: process.env.BLOCKCHAIN_EXPLORER_URL_LIVENET,
     },
     testnet: {
       provider: 'insight',

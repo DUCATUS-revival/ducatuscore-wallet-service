@@ -1,6 +1,4 @@
-FROM ubuntu:16.04
-
-RUN apt-get update -y && apt-get install -y git npm nodejs-legacy
+FROM node:8 as builder
 
 RUN mkdir -p /root/.ssh
 
@@ -9,22 +7,22 @@ RUN chmod 700 /root/.ssh/id_rsa
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /src/app
 
 # Install app dependencies
-COPY package.json /usr/src/app/
+COPY package.json /src/app/
 RUN npm install -g grunt bower
 RUN npm install
 
-# Bundle app source
-COPY . /usr/src/app
 
-RUN rm /root/.ssh/id_rsa
+FROM node:8-alpine
+WORKDIR /src/app
+COPY --from=0 /src/app/node_modules /src/app/node_modules
+
+COPY . /src/app
 
 EXPOSE 3380
 EXPOSE 3232
 EXPOSE 3231
 
 CMD [ "/bin/bash" ]
-
