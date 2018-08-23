@@ -14,7 +14,6 @@ COPY package.json /src/app/
 RUN npm install -g grunt bower
 RUN npm install
 
-
 FROM node:8-alpine
 WORKDIR /src/app
 COPY --from=0 /src/app/node_modules /src/app/node_modules
