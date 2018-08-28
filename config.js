@@ -63,20 +63,29 @@ var config = {
     fetchInterval: 60, // in minutes
   },
   // To use email notifications uncomment this:
-  // emailOpts: {
-  //  host: 'localhost',
-  //  port: 25,
-  //  ignoreTLS: true,
-  //  subjectPrefix: '[Wallet Service]',
-  //  from: 'wallet-service@bitcore.io',
-  //  templatePath: './lib/templates',
-  //  defaultLanguage: 'en',
-  //  defaultUnit: 'btc',
-  //  publicTxUrlTemplate: {
-  //    livenet: 'https://insight.bitpay.com/tx/{{txid}}',
-  //    testnet: 'https://test-insight.bitpay.com/tx/{{txid}}',
-  //  },
-  //},
+  emailOpts: {
+    host: process.env.EMAIL_HOST
+    port: process.env.EMAIL_PORT
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    },
+    tls: {
+      ciphers: 'SSLv3'
+    },
+    requireTLS: true,
+    subjectPrefix: process.env.EMAIL_SUBJECT,
+    from: process.env.EMAIL_FROM,
+    templatePath: './lib/templates',
+    defaultLanguage: process.env.EMAIL_DEFAULT_LANGUAGE,
+    defaultUnit: process.env.EMAIL_DEFAULT_UNIT,
+    publicTxUrlTemplate: {
+      livenet: process.env.BLOCKCHAIN_EXPLORER_URL_LIVENET + '/tx/{{txid}}',
+      testnet: 'https://test-insight.bitpay.com/tx/{{txid}}',
+    },
+  },
   //
   // To use sendgrid:
   // var sgTransport = require('nodemail-sendgrid-transport');
