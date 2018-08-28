@@ -53,10 +53,10 @@ var config = {
   pushNotificationsOpts: {
     templatePath: './lib/templates',
     defaultLanguage: 'en',
-    defaultUnit: 'btc',
+    defaultUnit: process.env.FCM_DEFAULT_UNIT,
     subjectPrefix: '',
     pushServerUrl: 'https://fcm.googleapis.com/fcm',
-    authorizationKey: '',
+    authorizationKey: process.env.FCM_AUTH_KEY
   },
   fiatRateServiceOpts: {
     defaultProvider: 'BitPay',
