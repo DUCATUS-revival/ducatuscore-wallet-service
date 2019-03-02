@@ -2,7 +2,7 @@
   "name": "ducatuscore-wallet-service",
   "description": "A service for Mutisig HD Bitcoin Wallets",
   "author": "BitPay Inc",
-  "version": "1.17.0",
+  "version": "1.17.0.debug",
   "licence": "MIT",
   "keywords": [
     "ducatuscoin",
