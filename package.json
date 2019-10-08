@@ -17,11 +17,11 @@
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/Ducatus/ducatuscore-wallet-service/issues"
+    "url": "https://github.com/DUCATUS-revival/ducatuscore-wallet-service/issues"
   },
   "dependencies": {
     "async": "^0.9.2",
-    "ducatuscore-lib": "git+ssh://git@github.com/Ducatus/ducatuscore-lib.git",
+    "ducatuscore-lib": "git+ssh://git@github.com/DUCATUS-revival/ducatuscore-lib.git",
     "body-parser": "^1.17.2",
     "compression": "^1.6.2",
     "coveralls": "^2.11.2",
