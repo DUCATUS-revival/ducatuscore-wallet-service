@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "async": "^0.9.2",
-    "ducatuscore-lib": "git+ssh://git@github.com/DUCATUS-revival/ducatuscore-lib.git",
+    "ducatuscore-lib": "git://github.com/DUCATUS-revival/ducatuscore-lib.git",
     "body-parser": "^1.17.2",
     "compression": "^1.6.2",
     "coveralls": "^2.11.2",
