@@ -8,7 +8,7 @@ services:
             - MONGO_LOG_DIR=/dev/null
         volumes:
             - mongodb-volume:/data/db
-        command: mongod --smallfiles --logpath=/dev/null # --quiet
+        command: mongod --logpath=/dev/null # --quiet
 
     locker:
         image: ducatuscore-wallet-service
@@ -17,7 +17,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
         #ports: # Service shouldn't be publicly exposed
         #    - 3231:3231
         links:
@@ -30,7 +30,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
         #ports: # Service shouldn't be publicly exposed
         #    - 3380:3380
         links:
@@ -44,45 +44,45 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
         links:
             - mongodb
 
     # Currently not using this
-    emailservice:
-        image: ducatuscore-wallet-service
-        command: node emailservice/emailservice.js
-        environment:
-            - MONGO_DB_URI=mongodb://mongodb:27017/bws 
-            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
-            - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
-        links:
-            - mongodb
+#    emailservice:
+#        image: ducatuscore-wallet-service
+#        command: node emailservice/emailservice.js
+#        environment:
+#            - MONGO_DB_URI=mongodb://mongodb:27017/bws
+#            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
+#            - MESSAGE_BROKER_URL=http://message-broker:3380
+#            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://194.135.84.108:3001
+#        links:
+#            - mongodb
 
     # Currently not using this
-    push-notifications-service:
-        image: ducatuscore-wallet-service
-        command: node pushnotificationsservice/pushnotificationsservice.js
-        environment:
-            - MONGO_DB_URI=mongodb://mongodb:27017/bws 
-            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
-            - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
-        links:
-            - mongodb
+#    push-notifications-service:
+#        image: ducatuscore-wallet-service
+#        command: node pushnotificationsservice/pushnotificationsservice.js
+#        environment:
+#            - MONGO_DB_URI=mongodb://mongodb:27017/bws
+#            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
+#            - MESSAGE_BROKER_URL=http://message-broker:3380
+#            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://194.135.84.108:3001
+#        links:
+#            - mongodb
 
     # Currently not using this
-    fiat-rate-service:
-        image: ducatuscore-wallet-service
-        command: node fiatrateservice/fiatrateservice.js
-        environment:
-            - MONGO_DB_URI=mongodb://mongodb:27017/bws 
-            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
-            - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
-        links:
-            - mongodb
+#    fiat-rate-service:
+#        image: ducatuscore-wallet-service
+#        command: node fiatrateservice/fiatrateservice.js
+#        environment:
+#            - MONGO_DB_URI=mongodb://mongodb:27017/bws
+#            - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
+#            - MESSAGE_BROKER_URL=http://message-broker:3380
+#            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://194.135.84.108:3001
+#        links:
+#            - mongodb
 
     # This is the main process
     dws:
@@ -92,7 +92,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=http://insight.ducatus.io:3001
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
         ports:
             - 3232:3232
         links:
