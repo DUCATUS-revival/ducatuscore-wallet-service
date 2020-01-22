@@ -17,7 +17,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://oldins.ducatus.io
         #ports: # Service shouldn't be publicly exposed
         #    - 3231:3231
         links:
@@ -30,7 +30,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://oldins.ducatus.io
         #ports: # Service shouldn't be publicly exposed
         #    - 3380:3380
         links:
@@ -44,7 +44,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://oldins.ducatus.io
         links:
             - mongodb
 
@@ -92,7 +92,7 @@ services:
             - MONGO_DB_URI=mongodb://mongodb:27017/bws 
             - LOCKER_HOST=locker # Hostname of the locker service, runs on port 3231
             - MESSAGE_BROKER_URL=http://message-broker:3380
-            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://insight.ducatus.io
+            - BLOCKCHAIN_EXPLORER_URL_LIVENET=https://oldins.ducatus.io
         ports:
             - 3232:3232
         links:
